@@ -1,0 +1,160 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+}
+
+.container {
+  inline-size: clamp(270px, 85%, 1220px);
+  margin-inline: auto;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  margin-inline: auto;
+  padding-block: 2rem;
+  inline-size: 100%;
+  background-color: #333;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .slider {
+    inline-size: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slider {
+    inline-size: 50%;
+  }
+}
+
+.slider__wrapper {
+  display: flex;
+  padding-inline: 2rem;
+  inline-size: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides {
+  display: flex;
+  gap: 4rem;
+  inline-size: 100%;
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
+.slider__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slider__controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-inline: 2rem;
+}
+
+.slide__label {
+  display: flex;
+}
+
+.slider__dot {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, outline 0.3s ease-in;
+}
+
+.slider__dot:focus-visible {
+  outline: 2px solid #0348af;
+  outline-offset: 4px;
+  transition: outline 0.5s ease-in;
+}
+
+@media (any-hover: hover) {
+  .slider__dot:hover {
+    box-shadow: 0 0 10px 6px #0267ff;
+    transition: box-shadow 0.5s ease;
+  }
+}
+
+.slider:has(.slider__dot[value="first"]:checked) .slider__wrapper {
+  transform: translateX(0);
+}
+
+.slider:has(.slider__dot[value="second"]:checked) .slider__wrapper {
+  transform: translateX(-100%);
+}
+
+.slider:has(.slider__dot[value="third"]:checked) .slider__wrapper {
+  transform: translateX(-200%);
+}
+
+.slider:has(.slider__dot[value="fourth"]:checked) .slider__wrapper {
+  transform: translateX(-300%);
+}
+
+.slider:has(.slider__dot[value="fifth"]:checked) .slider__wrapper {
+  transform: translateX(-400%);
+}
+
+.captions {
+  display: flex;
+  gap: 4rem;
+  padding-inline: 2rem;
+  inline-size: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.captions__text {
+  flex: 0 0 100%;
+  color: #ccc;
+  font-size: 2rem;
+}
+
+.slider:has(.slider__dot[value="first"]:checked) .captions {
+  transform: translateX(0);
+}
+
+.slider:has(.slider__dot[value="second"]:checked) .captions {
+  transform: translateX(-100%);
+}
+
+.slider:has(.slider__dot[value="third"]:checked) .captions {
+  transform: translateX(-200%);
+}
+
+.slider:has(.slider__dot[value="fourth"]:checked) .captions {
+  transform: translateX(-300%);
+}
+
+.slider:has(.slider__dot[value="fifth"]:checked) .captions {
+  transform: translateX(-400%);
+}
